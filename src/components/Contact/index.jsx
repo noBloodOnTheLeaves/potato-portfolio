@@ -21,7 +21,8 @@ export default function Index() {
                     <span>
                         <div className={styles.imageContainer}>
                             <Image
-                            fill={true}
+                            width={100}
+                            height={100}
                             alt={"image"}
                             src={`/images/main/cheer-honor.gif`}
                             />

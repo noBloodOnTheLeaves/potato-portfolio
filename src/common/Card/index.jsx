@@ -74,7 +74,6 @@ export default function Card({fileName = 'test', alt='test'}) {
                     <Image
                         src={`/images/album-preview/${fileName}.jpg`}
                         alt={alt}
-                        objectFit={'cover'}
                         fill={true}
                         style={{
                             borderRadius: '10px'
@@ -82,7 +81,6 @@ export default function Card({fileName = 'test', alt='test'}) {
                     />
                     <motion.div
                         style={{
-
                             width: 400,
                             height: 30,
                             perspective: 400, // Set perspective on the card
