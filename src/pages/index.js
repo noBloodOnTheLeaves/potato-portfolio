@@ -1,4 +1,5 @@
 import Contact from "@/components/Contact";
+import Reviews from "@/pages/reviews";
 import Head from 'next/head'
 import Curve from '@/components/Layout/Curve'
 import Banner from '../components/Main/Banner'

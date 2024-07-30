@@ -4,6 +4,7 @@ import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
+import contact from '/data/contact.json'
 
 export default function Index() {
     const container = useRef(null);
@@ -13,11 +14,11 @@ export default function Index() {
     })
     const x = useTransform(scrollYProgress, [0, 1], [0, 100])
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
-    //const rotate = useTransform(scrollYProgress, [0, 1], [120, 90])
+    //const rotate = useTransform(scrollYProgress, [0, 1], [180, 90])
     return (
-        <div style={{y}} ref={container} className={styles.contact + " container mt-20"}>
+        <div ref={container} className={styles.contact + " container mt-60 "}>
             <div className={styles.body}>
-                <div className={styles.title + " rounded-t"}>
+                <div className={styles.title}>
                     <span>
                         <div className={styles.imageContainer}>
                             <Image
@@ -31,47 +32,46 @@ export default function Index() {
                     </span>
                     <h2>together</h2>
                     <motion.div style={{x}} className={styles.buttonContainer}>
-                        <Rounded  backgroundColor={"#334BD3"} className={styles.button}>
+                        <Rounded backgroundColor={"#7F8487"} className={styles.button}>
+
+                            {/*<motion.div style={{rotate, scale: 1, zIndex: 1}}>
+                                <Image
+                                    priority
+                                    width={200}
+                                    height={200}
+                                    src={`/images/contact/yarn-ball.svg`}
+                                    alt="yarn-ball"
+                                />
+                            </motion.div>*/}
                             <p>Get in touch</p>
                         </Rounded>
                     </motion.div>
 
                 </div>
                 <div className={styles.nav}>
-                        <Rounded>
-                            <p>info@dennissnellenberg.com</p>
-                        </Rounded>
-                        <Rounded>
-                            <p>+31 6 27 84 74 30</p>
-                        </Rounded>
+                    <Rounded>
+                        <p>{contact.email}</p>
+                    </Rounded>
+                    <Rounded>
+                        <p>{contact.phone}</p>
+                    </Rounded>
                 </div>
                 <div className={styles.info}>
                     <div>
                         <span>
-                            <h3>Version</h3>
-                            <p>2022 © Edition</p>
-                        </span>
-                        <span>
-                            <h3>Version</h3>
-                            <p>11:49 PM GMT+2</p>
+                            <h3>Created by </h3>
+                            <Magnetic>
+                            <p>Panda 🐼</p>
+                        </Magnetic>
                         </span>
                     </div>
                     <div>
                         <span>
                             <h3>socials</h3>
-                            <Magnetic>
-                                <p>Awwwards</p>
-                            </Magnetic>
+                             <Magnetic>
+                            <p onClick={() => window.open(contact.socials[0].link, 'target')}>{contact.socials[0].name}</p>
+                        </Magnetic>
                         </span>
-                        <Magnetic>
-                            <p>Instagram</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Dribbble</p>
-                        </Magnetic>
-                        <Magnetic>
-                            <p>Linkedin</p>
-                        </Magnetic>
                     </div>
                 </div>
             </div>

@@ -53,8 +53,8 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
             onMouseLeave={handleMouseLeave}
             style={{
                 transformStyle: "preserve-3d",
-                width: 400,
-                height: 400,
+                width: 500,
+                height: 500,
                 transform,
             }}
             className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-gray-600 to-black-300"

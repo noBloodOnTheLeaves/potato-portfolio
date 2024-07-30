@@ -10,6 +10,7 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import Rounded from '../../common/RoundedButton';
 import Magnetic from '../../common/Magnetic';
+import routes from '/data/routes.json'
 
 export default function Header() {
     const header = React.useRef(null);
@@ -53,7 +54,7 @@ export default function Header() {
                     <div className={styles.name}>
                         {/*<p className={styles.codeBy}>Ricercare</p>*/}
                         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                        <Link href={'/'}>Ricercare</Link>
+                        <Link href={routes.header[0].path}>{routes.header[0].name}</Link>
                         {/*<a href='/' className={styles.menu}>Ricercare</a>*/}
                         {/*<p className={styles.dennis}> </p>
                     <p className={styles.snellenberg}>REE-chər-KAR-ay</p>*/}
@@ -61,9 +62,27 @@ export default function Header() {
                 </div>
                 {
                     isShowNav && <div className={styles.nav}>
-                        <Magnetic>
+                        {
+                            routes.header.slice(1).map((e ) => {
+                                return (
+                                    <Magnetic key={e.path}>
+                                        <div className={styles.el}>
+                                            <Link href={e.path}>{e.name}</Link>
+                                            <div className={styles.indicator}></div>
+                                        </div>
+                                    </Magnetic>
+                                )
+                            })
+                        }
+                        {/*<Magnetic>
                             <div className={styles.el}>
                                 <Link href={'/work'}>Work</Link>
+                                <div className={styles.indicator}></div>
+                            </div>
+                        </Magnetic>
+                        <Magnetic>
+                            <div className={styles.el}>
+                                <Link href={'/reviews'}>Reviews</Link>
                                 <div className={styles.indicator}></div>
                             </div>
                         </Magnetic>
@@ -78,7 +97,7 @@ export default function Header() {
                                 <Link href={'/contact'}>Contact</Link>
                                 <div className={styles.indicator}></div>
                             </div>
-                        </Magnetic>
+                        </Magnetic>*/}
                     </div>
                 }
             </div>

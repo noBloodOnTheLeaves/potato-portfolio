@@ -1,5 +1,6 @@
 import {motion, useScroll, useTransform} from "framer-motion";
 import React, {useRef} from "react";
+import banner from "/data/banner.json"
 
 export default function MultiLayerParallax() {
     const ref = useRef(null);
@@ -24,7 +25,7 @@ export default function MultiLayerParallax() {
                 style={{y: textY, marginTop: '7%', zIndex: -3}}
                 className="font-bold text-white text-7xl md:text-9xl relative flex justify-center"
             >
-                Ricercare
+                {banner.bigLabel}
             </motion.h1>
             <motion.div
                 className="absolute inset-0"

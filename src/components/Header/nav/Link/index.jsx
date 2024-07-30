@@ -4,25 +4,25 @@ import { motion } from 'framer-motion';
 import { slide, scale } from '../../animation';
 
 export default function Index({data, isActive, setSelectedIndicator}) {
-  
-    const { title, href, index} = data;
-  
+
+    const { name, path} = data;
+
     return (
-      <motion.div 
-        className={styles.link} 
-        onMouseEnter={() => {setSelectedIndicator(href)}} 
-        custom={index} 
-        variants={slide} 
-        initial="initial" 
-        animate="enter" 
+      <motion.div
+        className={styles.link}
+        onMouseEnter={() => {setSelectedIndicator(path)}}
+        custom={path}
+        variants={slide}
+        initial="initial"
+        animate="enter"
         exit="exit"
       >
-        <motion.div 
-          variants={scale} 
-          animate={isActive ? "open" : "closed"} 
+        <motion.div
+          variants={scale}
+          animate={isActive ? "open" : "closed"}
           className={styles.indicator}>
         </motion.div>
-        <Link href={href}>{title}</Link>
+        <Link href={path}>{name}</Link>
       </motion.div>
     )
 }
