@@ -102,7 +102,7 @@ export default function Header() {
                 }
             </div>
             <div ref={button} className={styles.headerButtonContainer}>
-                <Rounded onClick={() => {
+                <Rounded backgroundColor={'#27272A'} style={{backgroundColor: '#413F42'}} onClick={() => {
                     setIsActive(!isActive)
                 }} className={`${styles.button}`}>
                     <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>

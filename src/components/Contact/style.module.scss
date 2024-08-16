@@ -46,6 +46,7 @@
                 position: absolute;
                 left: calc(100% - 400px);
                 top: calc(100% - 75px);
+                z-index: 2;
             }
             .button{
                 width: 180px;

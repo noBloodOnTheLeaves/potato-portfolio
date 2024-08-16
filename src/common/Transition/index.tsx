@@ -4,12 +4,8 @@ import {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {opacity, slideUp} from './anim';
 import {usePathname} from "next/navigation";
-const routes = {
-    "/": "Home",
-    "/about": "About",
-    "/contact": "Contact",
-    "/work": "Work"
-}
+import routes from '../../../data/routes.json'
+
 export default function Index({children} : any) {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -52,7 +48,7 @@ export default function Index({children} : any) {
                 {dimension.width > 0 &&
                     <>
                         <motion.p variants={opacity} initial="initial" animate="enter"><span></span>{
-                            routes[path]
+                            routes.curve[path] ?? path.split("/").pop()
                         }</motion.p>
                         <svg>
                             <motion.path variants={curve} initial="initial" exit="exit"></motion.path>

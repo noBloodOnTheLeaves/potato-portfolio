@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/router";
 import React, { useRef } from "react";
 import {
     motion,
@@ -14,7 +15,7 @@ const HALF_ROTATION_RANGE = 32.5 / 2;
 
 const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = null}) => {
     const ref = useRef(null);
-
+    const router = useRouter()
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -53,9 +54,13 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
             onMouseLeave={handleMouseLeave}
             style={{
                 transformStyle: "preserve-3d",
-                width: 500,
-                height: 500,
+                width: 400,
+                height: 400,
                 transform,
+                cursor: 'pointer'
+            }}
+            onClick={()=>{
+                router.push(`/album/${alt}`)
             }}
             className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-gray-600 to-black-300"
         >

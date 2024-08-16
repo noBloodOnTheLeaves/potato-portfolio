@@ -3,13 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {usePathname} from 'next/navigation';
 import { text, curve, translate } from './anim';
-
-const routes = {
-    "/": "Home",
-    "/about": "About",
-    "/work": "Work",
-    "/contact": "Contact"
-}
+import routes from '/data/routes.json'
 
 const anim = (variants) => {
     return {
@@ -45,7 +39,7 @@ export default function Curve({children}) {
     <div className='page curve'>
        <div style={{opacity: dimensions.width == null ? 1 : 0}} className='background'/>
        <motion.p className='route' {...anim(text)}>
-           <span></span>{routes[path]}
+           <span></span>{routes.curve[path] ?? path.split("/").pop()}
         </motion.p>
        {dimensions.width && <SVG {...dimensions}/>}
         {

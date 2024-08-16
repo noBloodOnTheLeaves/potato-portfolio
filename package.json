@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
     "framer-motion": "^10.16.12",
     "fs": "^0.0.1-security",
     "gsap": "^3.12.5",
+    "lenis": "^1.1.9",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-use-measure": "^2.1.1",
     "sass": "^1.69.5",
     "tailwind-merge": "^2.4.0"
   },

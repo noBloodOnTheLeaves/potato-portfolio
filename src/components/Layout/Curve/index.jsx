@@ -1,16 +1,10 @@
 'use client';
+import {usePathname} from "next/navigation";
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router';
 import { text, curve, translate } from './anim';
-
-const routes = {
-    "/": "Home",
-    "/about": "About",
-    "/contact": "Contact",
-    "/work": "Work",
-    "/reviews": "Reviews",
-}
+import routes from  '../../../../data/routes.json'
 
 const anim = (variants) => {
     return {
@@ -22,7 +16,7 @@ const anim = (variants) => {
 }
 
 export default function Curve({children, backgroundColor}) {
-    const router = useRouter();
+    const router = usePathname();
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null
@@ -46,7 +40,7 @@ export default function Curve({children, backgroundColor}) {
     <div className='page curve' style={{backgroundColor}}>
        <div style={{opacity: dimensions.width == null ? 1 : 0}} className='background'/>
        <motion.p className='route' {...anim(text)}>
-            {routes[router.route]}
+            {routes.curve[router] ?? router.split("/").pop()}
         </motion.p>
        {dimensions.width != null && <SVG {...dimensions}/>}
         {

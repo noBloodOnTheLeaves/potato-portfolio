@@ -34,5 +34,11 @@
       "name": "Contact",
       "path": "/contact"
     }
-  ]
+  ],
+  "curve": {
+    "/": "Ricercare",
+    "/about": "About",
+    "/work": "Work",
+    "/contact": "Contact"
+  }
 }

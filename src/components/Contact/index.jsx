@@ -1,3 +1,6 @@
+import {ShootingStars} from "@/common/StarsBackground/ShootingStars";
+import {StarsBackground} from "@/common/StarsBackground/StarsBackground";
+import {useRouter} from "next/router";
 import styles from './style.module.scss';
 import Image from 'next/image';
 import Rounded from '../../common/RoundedButton';
@@ -8,6 +11,7 @@ import contact from '/data/contact.json'
 
 export default function Index() {
     const container = useRef(null);
+    const router = useRouter()
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start end", "end end"]
@@ -16,7 +20,9 @@ export default function Index() {
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
     //const rotate = useTransform(scrollYProgress, [0, 1], [180, 90])
     return (
-        <div ref={container} className={styles.contact + " container mt-60 "}>
+        <div ref={container} className={styles.contact + " container mt-60 "} style={{
+            zIndex: 0
+        }}>
             <div className={styles.body}>
                 <div className={styles.title}>
                     <span>
@@ -28,11 +34,11 @@ export default function Index() {
                             src={`/images/main/cheer-honor.gif`}
                             />
                         </div>
-                        <h2>Let's work</h2>
+                        <h2>{"Let's work"}</h2>
                     </span>
                     <h2>together</h2>
-                    <motion.div style={{x}} className={styles.buttonContainer}>
-                        <Rounded backgroundColor={"#7F8487"} className={styles.button}>
+                    <motion.div style={{x}} className={styles.buttonContainer} >
+                        <Rounded backgroundColor={'#27272A'} className={styles.button} onClick={()=> router.push(`/contact`)}>
 
                             {/*<motion.div style={{rotate, scale: 1, zIndex: 1}}>
                                 <Image
@@ -49,23 +55,27 @@ export default function Index() {
 
                 </div>
                 <div className={styles.nav}>
-                    <Rounded>
+                    <Rounded backgroundColor={'#27272A'}>
                         <p>{contact.email}</p>
                     </Rounded>
-                    <Rounded>
+                    <Rounded backgroundColor={'#27272A'}>
                         <p>{contact.phone}</p>
                     </Rounded>
                 </div>
                 <div className={styles.info}>
-                    <div>
-                        <span>
+                    <div style={{
+                        zIndex: 2
+                    }}>
+                        <span >
                             <h3>Created by </h3>
                             <Magnetic>
                             <p>Panda 🐼</p>
                         </Magnetic>
                         </span>
                     </div>
-                    <div>
+                    <div style={{
+                        zIndex: 2
+                    }}>
                         <span>
                             <h3>socials</h3>
                              <Magnetic>
@@ -74,7 +84,10 @@ export default function Index() {
                         </span>
                     </div>
                 </div>
+
             </div>
+            <StarsBackground />
+            <ShootingStars/>
         </div>
     )
 }
