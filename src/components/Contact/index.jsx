@@ -55,12 +55,12 @@ export default function Index() {
 
                 </div>
                 <div className={styles.nav}>
-                    <Rounded backgroundColor={'#27272A'}>
+                   {/* <Rounded backgroundColor={'#27272A'}>
                         <p>{contact.email}</p>
                     </Rounded>
                     <Rounded backgroundColor={'#27272A'}>
                         <p>{contact.phone}</p>
-                    </Rounded>
+                    </Rounded>*/}
                 </div>
                 <div className={styles.info}>
                     <div style={{
@@ -79,7 +79,7 @@ export default function Index() {
                         <span>
                             <h3>socials</h3>
                              <Magnetic>
-                            <p onClick={() => window.open(contact.socials[0].link, 'target')}>{contact.socials[0].name}</p>
+                            <p onClick={() => window.open("https://www.instagram.com/ricercare_1", 'target')}>{contact.socials[0].name}</p>
                         </Magnetic>
                         </span>
                     </div>

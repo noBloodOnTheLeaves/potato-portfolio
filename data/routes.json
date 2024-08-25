@@ -39,6 +39,9 @@
     "/": "Ricercare",
     "/about": "About",
     "/work": "Work",
-    "/contact": "Contact"
+    "/contact": "Contact",
+    "/album/coal" : "Coal 🪨",
+    "/album/mandarin" : "Mandarin 🍊",
+    "/album/gimli" : "Gimli 🪓"
   }
 }

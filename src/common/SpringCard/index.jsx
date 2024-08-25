@@ -13,7 +13,7 @@ import {
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
-const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = null}) => {
+const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = null, route = '/'}) => {
     const ref = useRef(null);
     const router = useRouter()
     const x = useMotionValue(0);
@@ -54,18 +54,18 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
             onMouseLeave={handleMouseLeave}
             style={{
                 transformStyle: "preserve-3d",
-                width: 400,
-                height: 400,
+                width: 500,
+                height: 500,
                 transform,
                 cursor: 'pointer'
             }}
             onClick={()=>{
-                router.push(`/album/${alt}`)
+                router.push(`/album/${route}`)
             }}
             className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-gray-600 to-black-300"
         >
             <Image
-                src={`/images/album-preview/${fileName}.jpg`}
+                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1280/album_preview/${fileName}.jpg`}
                 alt={'fawf'}
                 objectFit={'cover'}
                 fill={true}

@@ -48,7 +48,7 @@ export default function Header() {
     }, [])
     return (
         <>
-            <div ref={header} className={styles.header} style={pathname !== '/' ? {color: 'black'} : {color: 'white'}}>
+            <div ref={header} className={styles.header} style={pathname !== '/' ? {color: 'black', zIndex: 5} : {color: 'white' , zIndex: 5}}>
                 <div className={styles.logo}>
                     <p className={styles.copyright}>©</p>
                     <div className={styles.name}>

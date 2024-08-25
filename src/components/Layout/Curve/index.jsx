@@ -16,7 +16,9 @@ const anim = (variants) => {
 }
 
 export default function Curve({children, backgroundColor}) {
-    const router = usePathname();
+    const path = usePathname();
+    const router = useRouter();
+
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null
@@ -40,7 +42,7 @@ export default function Curve({children, backgroundColor}) {
     <div className='page curve' style={{backgroundColor}}>
        <div style={{opacity: dimensions.width == null ? 1 : 0}} className='background'/>
        <motion.p className='route' {...anim(text)}>
-            {routes.curve[router] ?? router.split("/").pop()}
+            {path && (routes.curve[path] ??  path.split("/").pop())}
         </motion.p>
        {dimensions.width != null && <SVG {...dimensions}/>}
         {

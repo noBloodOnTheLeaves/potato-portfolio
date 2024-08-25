@@ -17,7 +17,9 @@ export default function Index({children, backgroundColor="#7F8487", style ={}, o
 
   const manageMouseEnter = () => {
     if(timeoutId) clearTimeout(timeoutId)
-    timeline.current.tweenFromTo('enter', 'exit');
+    if(timeline){
+      timeline.current.tweenFromTo('enter', 'exit');
+    }
   }
 
   const manageMouseLeave = () => {
