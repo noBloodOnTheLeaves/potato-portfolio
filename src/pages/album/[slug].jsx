@@ -1,6 +1,7 @@
 import Modal from "@/common/PhotoViewModal";
 import {WobbleCard} from "@/common/WobbleCard";
 import Curve from "@/components/Layout/Curve";
+import Lenis from "lenis";
 import Link from "next/link";
 import Image from "next/image"
 import {useRouter} from "next/router";
@@ -18,6 +19,15 @@ export default function Photos({images}) {
     const lastViewedPhotoRef = useRef(null);*/
     const [openModal, setOpenModal] = useState(false);
 
+    useEffect( () => {
+        const lenis = new Lenis()
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+    }, [])
     /*useEffect(() => {
         // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
         if (lastViewedPhoto && !photoId) {

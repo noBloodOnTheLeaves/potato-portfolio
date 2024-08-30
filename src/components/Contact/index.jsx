@@ -73,7 +73,7 @@ export default function Index() {
                         </Magnetic>
                         </span>
                     </div>
-                    <div style={{
+                   {/* <div style={{
                         zIndex: 2
                     }}>
                         <span>
@@ -82,7 +82,7 @@ export default function Index() {
                             <p onClick={() => window.open("https://www.instagram.com/ricercare_1", 'target')}>{contact.socials[0].name}</p>
                         </Magnetic>
                         </span>
-                    </div>
+                    </div>*/}
                 </div>
 
             </div>

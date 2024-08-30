@@ -7,7 +7,7 @@ function Index() {
 
     return (
         <div className="container">
-            <div className="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-20">
+            <div className="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-36">
                 {
                     filesList.map((e) => {
                         return <SpringCard key={e.fileName} {...e}/>

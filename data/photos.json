@@ -19,5 +19,10 @@
       "instagram": "#",
       "route": "gimli"
     }
+  ],
+  "beforeAfter": [
+    {"firstImage": "/images/before-after/coal.jpg", "secondImage": "/images/before-after/coal-after.jpg"},
+    {"firstImage": "/images/before-after/grass-cat.jpg", "secondImage": "/images/before-after/grass-cat-after.jpg"},
+    {"firstImage": "/images/before-after/laying.jpg", "secondImage": "/images/before-after/laying-after.jpg"}
   ]
 }

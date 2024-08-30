@@ -18,9 +18,10 @@ export default function MultiLayerParallax() {
             ref={ref}
             style={{
                 width: '100vw',
-                backgroundImage: "linear-gradient(to top, black 15%, transparent 40%)"
+                height: '105vh',
+                backgroundImage: "linear-gradient(to top, black 15%, transparent 40%)",
             }}
-            className="w-full h-screen overflow-hidden relative mb-14" /*grid place-items-center*/
+            className="w-full h-screen overflow-hidden relative" /*grid place-items-center*/
         >
             <motion.h1
                 style={{
@@ -63,7 +64,7 @@ export default function MultiLayerParallax() {
                     backgroundImage: `url(/images/SamuraiLayer1.png)`,
                     backgroundPosition: "bottom",
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize: "100vw 115vh",
+                    backgroundSize: "100vw 113vh",
                     size: "80%",
                     zIndex: -2,
                 }}
