@@ -21,14 +21,14 @@ export default function Header() {
 
     React.useEffect(() => {
         if (isActive) setIsActive(false)
-    }, [pathname])
+    }, [isActive, pathname])
 
     React.useLayoutEffect(() => {
-        if(window.innerWidth < 800){
+        if (window.innerWidth < 800) {
             setIsShowNav(false)
-            gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})
+            gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out", zIndex: 6})
         }
-        if(window.innerWidth >  800){
+        if (window.innerWidth > 800) {
             gsap.registerPlugin(ScrollTrigger)
             gsap.to(button.current, {
                 scrollTrigger: {
@@ -48,7 +48,8 @@ export default function Header() {
     }, [])
     return (
         <>
-            <div ref={header} className={styles.header} style={pathname !== '/' ? {color: 'black', zIndex: 5} : {color: 'white' , zIndex: 5}}>
+            <div ref={header} className={styles.header}
+                 style={pathname !== '/' ? {color: 'black', zIndex: 5} : {color: 'white', zIndex: 5}}>
                 <div className={styles.logo}>
                     <p className={styles.copyright}>©</p>
                     <div className={styles.name}>
@@ -63,11 +64,11 @@ export default function Header() {
                 {
                     isShowNav && <div className={styles.nav}>
                         {
-                            routes.header.slice(1).map((e ) => {
+                            routes.header.slice(1).map((e) => {
                                 return (
                                     <Magnetic key={e.path}>
                                         <div className={styles.el}>
-                                            <Link href={e.path}>{e.name}</Link>
+                                            <Link href={e.path} prefetch={true}>{e.name}</Link>
                                             <div className={styles.indicator}></div>
                                         </div>
                                     </Magnetic>

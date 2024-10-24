@@ -53,8 +53,10 @@ export default function Index() {
                             return <Link
                                 key={index}
                                 data={{...data, index}}
-                                isActive={selectedIndicator == data.path}
-                                setSelectedIndicator={setSelectedIndicator}>
+                                isActive={selectedIndicator === data.path}
+                                setSelectedIndicator={setSelectedIndicator}
+                                prefetch={true}
+                            >
                             </Link>
                         })
                     }

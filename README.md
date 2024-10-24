@@ -1,40 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Potato's portfolio
+
+<img src="./public/images/about/camera.png" alt="MarineGEO circle logo" style="height: 200px; width:200px;"/>
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Don't forget create .env file
+
+**NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=** \
+**CLOUDINARY_API_KEY=** \
+**CLOUDINARY_API_SECRET=** \
+**CLOUDINARY_FOLDER=**
+**PANTRY_API_ID=**
+**PANTRY_SCHEDULED_PHOTOS_BASKET_NAME=**
+**NEXT_PUBLIC_CLOUDINARY_API_KEY=**
+
+Note about pantry:
+- if it will be too little requests, they will delete your account
+- need to register new token and create basket **scheduled_photoshoots**. It should be json array with **date** key
+- JSON structure and date format 
+`
+  {
+  "bookedDays": [
+  {
+  "date": "2024-09-25T00:00:00",
+  },
+  {
+  "date": "2024-09-14T00:00:00"
+  }
+  ]
+  }
+`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.jsx`. The page auto-updates as you edit the file.
+Some content is from data folder. This folder contains .json config files with data.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### #TODO
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ - [ ] optimization for different devices - kinda
+ - [X] pages prefetch -> getStaticProps refactoring
+ - [ ] change banner
+ - [ ] seo
+ - [ ] vercel deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+[Based on Next.js](https://nextjs.org/docs) \
+Deploy [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) \
+[Next.js deployment documentation](https://nextjs.org/docs/deployment)

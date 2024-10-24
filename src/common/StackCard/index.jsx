@@ -48,6 +48,8 @@ const StackCard = ({i, title, description, src, url, progress, range, targetScal
                                 fill
                                 src={`/images/${src}`}
                                 alt={alt}
+                                priority
+                                unoptimized
                             />
                         </motion.div>
                     </div>

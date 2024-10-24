@@ -1,4 +1,3 @@
-import {useMemo, useState} from "react";
 import {
     addMonths,
     eachDayOfInterval,
@@ -8,16 +7,17 @@ import {
     isSameDay,
     isSameMonth,
     isSameYear,
-    parse, parseISO,
+    parse,
+    parseISO,
     startOfMonth,
     startOfToday,
     startOfWeek,
 } from "date-fns";
 import {AnimatePresence, motion, useMotionTemplate, useMotionValue} from "framer-motion";
+import {useMemo, useState} from "react";
 import useMeasure from "react-use-measure";
 import {usePrevious} from "../../../lib/use-previous";
 import {cn} from "../../../lib/utils";
-import contact from '../../../data/contact.json'
 
 const variants = {
     enter: ({ direction, width }) => {
@@ -40,10 +40,9 @@ const variants = {
     },
 };
 
-export function Calendar({onChange, error = false, bookedDay = ''}) {
+export function Calendar({onChange, error = false, bookedDay = '', scheduledDays = []}) {
     const [ref, bounds] = useMeasure();
-    //#todo make editable
-    const [booked, setBooked] = useState(contact.bookedDays.map((day) =>{
+    const [booked, setBooked] = useState(scheduledDays.map((day) =>{
         return format(parseISO(day), 'MM/dd/yyyy')
     }))
 

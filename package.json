@@ -24,6 +24,7 @@
     "imagemin-jpegtran": "^7.0.0",
     "lenis": "^1.1.9",
     "next": "14.0.3",
+    "next-cloudinary": "^6.16.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hooks-global-state": "^2.1.0",

@@ -1,130 +1,36 @@
-.contact{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #141516;
+
+.line{
+    height: 1px;
+    margin-bottom: 20px;
+    width: 100%;
     position: relative;
-    border-radius: 10px 10px 0px 0px;
-    .body{
-        padding-top: 100px;
-        width: 100%;
-        max-width: 1800px;
-        background-color: #141516;
-        border-radius: 10px 10px 0px 0px;
-        .title{
-            border-bottom: 1px solid rgb(134, 134, 134);
-            padding-bottom: 100px;
-            margin-left: 200px;
-            margin-right: 200px;
-            position: relative;
-            span{
-                display: flex;
-                align-items: center;
-                .imageContainer{
-                    width: 100px;
-                    height: 100px;
-                    position: relative;
-                    border-radius: 50%;
-                    overflow: hidden;
+    z-index: 10;
+    top: 100px
+}
 
-                    img{
-                        object-fit: cover;
-                    }
-                }
-                h2{
-                    margin-left: 0.3em;
-                }
-            }
-            h2{
-                font-size: 5vw;
-                margin: 0;
-                font-weight: 300;
-            }
-            .buttonContainer{
-                position: absolute;
-                left: calc(100% - 400px);
-                top: calc(100% - 75px);
-                z-index: 2;
-            }
-            .button{
-                width: 180px;
-                height: 180px;
-                background-color: #413F42;
-                color: white;
-                border-radius: 50%;
-                position: absolute;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                p{
-                    margin: 0;
-                    font-size: 22px;
-                    font-weight: 400;
-                    z-index: 2;
-                    position: absolute;
-                }
-            }
-            svg{
-                position: absolute;
-                top: 30%;
-                left: 100%;
-            }
-        }
-        .nav{
-            display: flex;
-            gap: 100px;
-            justify-content: center;
-        }
-        .info{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5%;
-            padding: 20px;
-            div{
-                display: flex;
-                gap: 10px;
-                align-items: flex-end;
-                p, h3{
-                    margin: 0;
-                    padding: 2.5px;
-                    cursor: pointer;
-                }
-                p{
-                    &::after{
-                        content: "";
-                        width: 0%;
-                        height: 1px;
-                        background-color: white;
-                        display: block;
-                        margin-top: 2px;
-                        position: relative;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        transition: width 0.2s linear;
-                    }
-                    &:hover{
-                        &::after{
-                            width: 100%;
-                        }
-                    }
-                }
-                span{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 15px;
-                }
-                h3{
-                    color: grey;
-                    cursor: default;
-                    font-weight: 300;
-                    font-size: 1em;
-                }
-            }
+.line svg{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: -250px;
+}
 
-        }
-    }
+.line svg path{
+    stroke: white;
+    stroke-width: 1px;
+    fill: none;
+    width: 100%;
+}
 
+.line .box{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    z-index: 1;
+}
+
+.line .box:hover{
+    height: 500px;
+    top: -250px;
 }

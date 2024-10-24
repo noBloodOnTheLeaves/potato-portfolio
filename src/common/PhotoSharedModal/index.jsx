@@ -1,16 +1,10 @@
 import Rounded from "@/common/RoundedButton";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import Image from "next/image";
-import { useState } from "react";
+import {CldImage} from "next-cloudinary";
+import {useState} from "react";
 import { useSwipeable } from "react-swipeable";
-import contact from "../../../data/contact.json";
 import { variants } from "../../../lib/utils";
-//import downloadPhoto from "../../../lib/downloadPhoto";
 import { range } from "../../../lib/utils";
-import Lottie from 'react-lottie';
-import arrowLeft from '../../../public/lotties/arrow_left.json';
-import arrowRight from '../../../public/lotties/arrow_right.json';
-import close from '../../../public/lotties/plane_close.json';
 
 export default function SharedModal({
                                         index,
@@ -22,31 +16,6 @@ export default function SharedModal({
                                         direction,
                                     }) {
     const [loaded, setLoaded] = useState(false);
-
-    const arrowRightOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: arrowLeft,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
-    const arrowLeftOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: arrowRight,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
-    const closeOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: close,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
 
     let filteredImages = images?.filter((img) =>
         range(index - 15, index + 15).includes(img.id),
@@ -79,6 +48,29 @@ export default function SharedModal({
                 className="relative z-40 flex aspect-[3/2] w-full max-w-7xl items-center wide:h-full xl:taller-than-854:h-auto"
                 {...handlers}
             >
+                <div className="absolute right-1 flex items-start gap-5 pr-5 pt-16 text-white h-full">
+                    <button
+                        onClick={() => closeModal()}
+                        className="rounded-full p-1 "
+                    >
+                        <Rounded
+                            backgroundColor={'rgb(255 255 255 / 0.2)'}
+                            style={{
+                                borderRadius: 30,
+                                width: 20,
+                                height: 20,
+                                padding: 25,
+                                backgroundColor: 'rgb(255 255 255 / 0.3)'
+                            }}
+                        >
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                    <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </p>
+                        </Rounded>
+                    </button>
+                </div>
                 {/* Main image */}
                 <div className="w-full overflow-hidden">
                     <div className="relative flex aspect-[3/2] items-center justify-center">
@@ -92,17 +84,16 @@ export default function SharedModal({
                                 exit="exit"
                                 className="absolute"
                             >
-                                <Image
-                                    src={`https://res.cloudinary.com/${
-                                        process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                                    }/image/upload/c_scale,${navigation ? "w_1280" : "w_1920"}/${
-                                        currentImage.public_id
-                                    }.${currentImage.format}`}
+                                <CldImage
+                                    key={currentImage.public_id}
+                                    src={currentImage.public_id}
+                                    alt={currentImage.public_id}
+                                    onLoad={() => setLoaded(true)}
                                     width={navigation ? 1280 : 1920}
                                     height={navigation ? 853 : 1280}
+                                    placeholder="blur"
+                                    blurDataURL={currentImage.blurDataUrl}
                                     priority
-                                    alt="Next.js Conf image"
-                                    onLoad={() => setLoaded(true)}
                                 />
                             </motion.div>
                         </AnimatePresence>
@@ -163,34 +154,6 @@ export default function SharedModal({
                                     )}
                                 </>
                             )}
-
-                            <div className="absolute top-16 right-1 flex items-center gap-2 p-3 text-white">
-                                <button
-                                    onClick={() => closeModal()}
-                                    className="rounded-full p-1 "
-                                >
-                                    <Rounded
-                                        backgroundColor={'rgb(255 255 255 / 0.2)'}
-                                        style={{
-                                            right: '0.75rem',
-                                            top: '50%',
-                                            position: 'absolute',
-                                            borderRadius: 30,
-                                            width: 20,
-                                            height: 20,
-                                            padding: 25,
-                                            backgroundColor: 'rgb(255 255 255 / 0.3)'
-                                        }}
-                                        onClick={() => changePhotoId(index + 1)}
-                                    >
-                                        <p>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-                                                <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokLinejoin="round" />
-                                            </svg>
-                                        </p>
-                                    </Rounded>
-                                </button>
-                            </div>
                         </div>
                     )}
                     {/* Bottom Nav bar */}
@@ -223,16 +186,19 @@ export default function SharedModal({
                                                 id === images.length - 1 ? "rounded-r-md" : ""
                                             } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
                                         >
-                                            <Image
-                                                alt="small photos on the bottom"
+
+                                            <CldImage
+                                                key={public_id}
+                                                src={public_id}
+                                                alt={public_id}
                                                 width={180}
                                                 height={120}
+                                                priority
                                                 className={`${
                                                     id === index
                                                         ? "brightness-110 hover:brightness-110"
                                                         : "brightness-50 contrast-125 hover:brightness-75"
                                                 } h-full transform object-cover transition`}
-                                                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
                                             />
                                         </motion.button>
                                     ))}

@@ -189,6 +189,7 @@ export const Compare = ({
                                     "absolute inset-0  z-20 rounded-2xl flex-shrink-0 w-full h-full select-none",
                                     firstImageClassName
                                 )}
+                                unoptimized
                             />
                         </motion.div>
                     ) : null}

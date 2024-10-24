@@ -1,9 +1,5 @@
-
-import {GlareEffect} from "@/common/GlareEffect";
-import Magnetic from "@/common/Magnetic";
 import {Meteors} from "@/common/Meteors";
 import Rounded from "@/common/RoundedButton";
-import {ShootingStars} from "@/common/StarsBackground/ShootingStars";
 import Image from "next/image";
 import React from "react";
 import contact from "../../../data/contact.json";
@@ -42,6 +38,7 @@ const Card = () => {
                     opacity: 0.6
                 }}
                 alt={'socials'}
+                unoptimized
             />
             <Image
                 src={'/images/about/camera.png'}
@@ -55,14 +52,15 @@ const Card = () => {
                     right: -90,
                     opacity: 0.6
                 }}
-                alt={'socials'}
+                alt={'camera'}
+                unoptimized
             />
             <div style={{
                 transform: "translateZ(35px)",
             }}>
 
 
-                <div style={{width: 400, height: 400}}>
+                <div className="lg:h-[400px] lg:w-[400px] xs:h-[300px] xs:w-[300px]">
                     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
                     <div className="relative shadow-xl bg-gray-900 border border-gray-800  p-3 h-full overflow-hidden rounded-2xl flex flex-col justify-start items-end">
 
@@ -77,14 +75,14 @@ const Card = () => {
                             About meee
                         </h1>*/}
 
-                        <p className="font-normal text-base text-slate-500 relative ">
+                        <p className="font-normal text-base text-slate-500 relative xs:text-xs lg:text-base">
                             I don&apos;t know what to write so I&apos;ll just paste something
                             cool here. One more sentence because lorem ipsum is just
                             unacceptable. Won&apos;t ChatGPT the shit out of this.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tellus mi, efficitur id efficitur at, sodales eget turpis.
                         </p>
 
-                        <p className="font-normal text-base text-slate-500 relative w-1/2 mt-1">
+                        <p className="font-normal  text-base text-slate-500 relative w-1/2 mt-1 xs:text-xs lg:text-base">
                             I don&apos;t know what to write so I&apos;ll just paste something
                             cool here. One more sentence because lorem ipsum is just
                             unacceptable. Won&apos;t ChatGPT the shit out of this.
@@ -98,14 +96,16 @@ const Card = () => {
 
                 </div>
             </div>
-            <div  style={{
-                bottom: 25,
-                left: 300,
-                position: 'absolute',
-                borderRadius: '10px',
-                transform: "translateZ(70px)",
-                display: 'flex',
-            }}>
+            <div
+                style={{
+                    bottom: 25,
+                    position: 'absolute',
+                    borderRadius: '10px',
+                    transform: "translateZ(70px)",
+                    display: 'flex',
+                }}
+                className="md:left-[300px] xs:left-[150px]"
+            >
                 {buttons.map((value) => {
                     return (
                         <Rounded
@@ -128,7 +128,8 @@ const Card = () => {
                                 style={{
                                     maxWidth: 'unset'
                                 }}
-                                alt={'socials'}
+                                alt={value.image}
+                                unoptimized
                             ></Image>
                         </Rounded>
                     )
@@ -136,17 +137,20 @@ const Card = () => {
             </div>
             <Image
                 src={`/images/about/potato.jpg`}
-                alt={'fawf'}
+                alt={'potato'}
                 width={300}
                 height={400}
                 objectFit="cover"
                 style={{
                     position: 'absolute',
-                    top: 170,
-                    right: 220,
                     borderRadius: '10px',
                     transform: "translateZ(100px)",
                 }}
+                className="
+                md:top-[170px] md:right-[220px]  xs:top-[120px] xs:right-[170px]
+                xs:w-[150px] xs:h-[200px] md:w-[150px] md:h-[200px]  lg:h-[350px] lg:w-[300px] xl:h-[350px] xl:w-[300px]
+                "
+                unoptimized
             />
             <div>
 

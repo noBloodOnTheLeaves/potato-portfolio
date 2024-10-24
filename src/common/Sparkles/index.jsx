@@ -1,6 +1,6 @@
 "use client";
-import React, { useId } from "react";
-import { useEffect, useState } from "react";
+import React, {useId, useMemo} from "react";
+import { useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { motion, useAnimation } from "framer-motion";
@@ -18,13 +18,14 @@ export const SparklesCore = (props) => {
         particleDensity,
     } = props;
     const [init, setInit] = useState(false);
-    useEffect(() => {
+    useMemo(() => {
         initParticlesEngine(async (engine) => {
             await loadSlim(engine);
         }).then(() => {
             setInit(true);
         });
-    }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [background]);
     const controls = useAnimation();
 
     const particlesLoaded = async (container) => {

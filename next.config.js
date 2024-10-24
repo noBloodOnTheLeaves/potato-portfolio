@@ -12,6 +12,8 @@ const nextConfig = {
   profiler: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    loader: 'cloudinary',
+    path: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/`,
     remotePatterns: [
       {
         protocol: "https",

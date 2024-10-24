@@ -1,41 +1,53 @@
 import React from 'react'
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 import styles from './style.module.scss';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic';
 
-export default function Index({children, backgroundColor="#7F8487", style ={}, onClick = () => {}, ...attributes}) {
-  const circle = useRef(null);
-  let timeline = useRef(null);
-  let timeoutId = null;
-  useEffect( () => {
-    timeline.current = gsap.timeline({paused: true})
-    timeline.current
-      .to(circle.current, {top: "-25%", width: "150%", duration: 0.4, ease: "power3.in"}, "enter")
-      .to(circle.current, {top: "-150%", width: "125%", duration: 0.25}, "exit")
-  }, [])
+export default function Index({
+                                  children,
+                                  backgroundColor = "#7F8487",
+                                  style = {},
+                                  onClick = () => {},
+                                  classes = '',
+                                  ...attributes
+                              }) {
+    const circle = useRef(null);
+    let timeline = useRef(null);
+    let timeoutId = null;
+    useEffect(() => {
+        timeline.current = gsap.timeline({paused: true})
+        timeline.current
+            .to(circle.current, {top: "-25%", width: "150%", duration: 0.4, ease: "power3.in"}, "enter")
+            .to(circle.current, {top: "-150%", width: "125%", duration: 0.25}, "exit")
+    }, [])
 
-  const manageMouseEnter = () => {
-    if(timeoutId) clearTimeout(timeoutId)
-    if(timeline){
-      timeline.current.tweenFromTo('enter', 'exit');
+    const manageMouseEnter = () => {
+        if (timeoutId) clearTimeout(timeoutId)
+        if (timeline) {
+            timeline.current.tweenFromTo('enter', 'exit');
+        }
     }
-  }
 
-  const manageMouseLeave = () => {
-    timeoutId = setTimeout( () => {
-      timeline.current.play();
-    }, 300)
-  }
+    const manageMouseLeave = () => {
+        timeoutId = setTimeout(() => {
+            timeline.current.play();
+        }, 300)
+    }
 
-  return (
-    <Magnetic>
-      <div onClick={onClick} className={styles.roundedButton} style={{overflow: "hidden", zIndex: 2, ...style}} onMouseEnter={() => {manageMouseEnter()}} onMouseLeave={() => {manageMouseLeave()}} {...attributes}>
-          {
-            children
-          }
-        <div ref={circle} style={{backgroundColor}} className={styles.circle}></div>
-      </div>
-    </Magnetic>
-  )
+    return (
+        <Magnetic>
+            <div onClick={onClick} className={styles.roundedButton}
+                 style={{overflow: "hidden", zIndex: 2, ...style}} onMouseEnter={() => {
+                manageMouseEnter()
+            }} onMouseLeave={() => {
+                manageMouseLeave()
+            }} {...attributes}>
+                {
+                    children
+                }
+                <div ref={circle} style={{backgroundColor}} className={styles.circle}></div>
+            </div>
+        </Magnetic>
+    )
 }

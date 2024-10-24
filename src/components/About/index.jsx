@@ -39,31 +39,31 @@ export default function About() {
     };
 
     return (
-            <div
+        <div
+            style={{
+                zIndex: 4,
+                position: 'relative',
+                width: '100vw',
+                height: '100vh',
+                overflow: 'hidden',
+                perspective: '1000px',
+            }}>
+            <motion.div
+                ref={ref}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
                 style={{
-                    zIndex: 4,
-                    position: 'relative',
-                    width: '100vw',
-                    height: '100vh',
-                    overflow: 'hidden',
-                    perspective: '1000px',
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    transformStyle: 'preserve-3d',
+                    transform
                 }}>
-                <motion.div
-                    ref={ref}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        transformStyle: 'preserve-3d',
-                        transform
-                    }}>
-                    <Card />
-                </motion.div>
+                <Card/>
+            </motion.div>
 
-            </div>
-        )
+        </div>
+    )
 }

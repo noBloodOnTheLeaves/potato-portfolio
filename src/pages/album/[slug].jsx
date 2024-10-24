@@ -2,18 +2,13 @@ import Modal from "@/common/PhotoViewModal";
 import {WobbleCard} from "@/common/WobbleCard";
 import Curve from "@/components/Layout/Curve";
 import Lenis from "lenis";
-import Link from "next/link";
-import Image from "next/image"
-import {useRouter} from "next/router";
-import {useEffect, useRef, useState} from "react";
-import photos from '../../../data/photos.json'
+import {CldImage} from "next-cloudinary";
+import {useEffect, useState} from "react";
 import getResults from "../../../lib/cachedResults";
-import cloudinary from "../../../lib/cloudinary";
 import getBase64ImageUrl from "../../../lib/generateBlurPlaceholder";
-import {useLastViewedPhoto} from "../../../lib/useLastViewedPhoto";
 
 export default function Photos({images}) {
-    /*const router = useRouter();*/
+    //const router = useRouter();
     const [photoId, setPhotoId]  = useState(null);
     /*const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
     const lastViewedPhotoRef = useRef(null);*/
@@ -27,7 +22,7 @@ export default function Photos({images}) {
             requestAnimationFrame(raf)
         }
         requestAnimationFrame(raf)
-    }, [])
+    }, [images])
     /*useEffect(() => {
         // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
         if (lastViewedPhoto && !photoId) {
@@ -56,24 +51,25 @@ export default function Photos({images}) {
                         key={public_id}
                         containerClassName="col-span-1 h-full mb-4"
                     >
-                            <Image
-                                onClick={()=>{
-                                    setPhotoId(id)
-                                    setOpenModal(true)}
+                        <CldImage
+                            key={public_id}
+                            src={public_id}
+                            alt={public_id}
+                            onClick={()=>{
+                                setPhotoId(id)
+                                setOpenModal(true)}
                             }
-                                alt="Next.js Conf photo"
-                                className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
-                                style={{ transform: "translate3d(0, 0, 0)" }}
-                                placeholder="blur"
-                                blurDataURL={blurDataUrl}
-                                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
-                                width={720}
-                                height={480}
-                                sizes="(max-width: 640px) 100vw,
-                  (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 33vw,
-                  25vw"
-                            />
+                            className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+                            style={{ transform: "translate3d(0, 0, 0)" }}
+                            sizes="(max-width: 640px) 100vw,
+                                      (max-width: 1280px) 50vw,
+                                      (max-width: 1536px) 33vw,
+                                      25vw"
+                            blurDataURL={blurDataUrl}
+                            width={720}
+                            height={480}
+                            priority
+                        />
                     </WobbleCard>
                 ))}
             </div>
@@ -95,7 +91,7 @@ export default function Photos({images}) {
 export async function getStaticPaths() {
     return {
         paths: [{ params: { slug: 'coal' } }, { params: { slug: 'mandarin' }},  { params: { slug: 'gimli' } }],
-        fallback: true,
+        fallback: false,
     };
 }
 

@@ -1,4 +1,3 @@
-import Magnetic from "@/common/Magnetic";
 import About from "@/components/About";
 import BeforeAfter from "@/components/BeforeAfter";
 import Contact from "@/components/Contact";
@@ -6,11 +5,14 @@ import RightNavSocials from "@/components/RightNavSocials";
 import Lenis from "lenis";
 import Head from 'next/head'
 import Curve from '@/components/Layout/Curve'
+import {useRouter} from "next/router";
 import {useEffect} from "react";
 import Banner from '../components/Main/Banner'
 import WorkPreview from "src/components/Main/ModelsPreview";
+import photos from '../../data/photos.json'
 
 export default function Home() {
+    const router = useRouter();
     useEffect( () => {
         const lenis = new Lenis()
 
@@ -20,6 +22,11 @@ export default function Home() {
         }
         requestAnimationFrame(raf)
     }, [])
+
+    useEffect(() => {
+        // prefetch albums pages
+        photos.albumPreview.forEach(album => router.prefetch(`/album/${album.route}`))
+    }, [router])
 
     return (
         <>
@@ -40,7 +47,6 @@ export default function Home() {
             </Curve>
             <BeforeAfter/>
             <Contact/>
-
         </>
     )
 }

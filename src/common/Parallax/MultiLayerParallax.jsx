@@ -2,7 +2,6 @@ import {motion, useScroll, useTransform} from "framer-motion";
 import React, {useRef} from "react";
 import banner from "/data/banner.json"
 
-
 export default function MultiLayerParallax() {
     const ref = useRef(null);
     const {scrollYProgress} = useScroll({
@@ -18,32 +17,30 @@ export default function MultiLayerParallax() {
             ref={ref}
             style={{
                 width: '100vw',
-                height: '105vh',
+                height: '115vh',
                 backgroundImage: "linear-gradient(to top, black 15%, transparent 40%)",
             }}
-            className="w-full h-screen overflow-hidden relative" /*grid place-items-center*/
+            className="overflow-hidden relative" /*grid place-items-center*/
         >
             <motion.h1
                 style={{
                     y: textY,
-                    marginTop: '10%',
-                    marginRight: 60,
                     zIndex: -3,
                     fontFamily: "'Brush Strokes', sans-serif",
                     fontWeight: 300,
-                    letterSpacing: 30,
             }}
-                className="font-bold text-white text-7xl md:text-9xl relative flex justify-center"
+                className={"h-72 xs:top-44 xl:tracking-[5rem] xs:tracking-[1.7rem]  !text-white xl:text-7xl xs:text-3xl text-nowrap relative flex justify-center items-center"}
             >
                 {banner.bigLabel}
             </motion.h1>
             <motion.div
                 className="absolute inset-0"
                 style={{
-                    backgroundImage: `url(/images/SamuraiBannerVanish.jpg)`,
+                    backgroundImage: `url(/images/SamuraiBannerVanish.jpg) `,
                     backgroundPosition: "bottom",
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize: "100vw 115vh",
+                    backgroundSize: "100% 114vh",
+
                     y: backgroundY1,
                     zIndex: -5
                 }}
@@ -59,12 +56,12 @@ export default function MultiLayerParallax() {
                 }}
             />*/}
             <div
-                className="absolute inset-0"
+                className="absolute inset-0  xl:left-0 xl:w-full xs:w-[50rem] xs:-left-44"
                 style={{
-                    backgroundImage: `url(/images/SamuraiLayer1.png)`,
+                    backgroundImage: `url(/images/SamuraiLayer1.png) `,
                     backgroundPosition: "bottom",
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize: "100vw 113vh",
+                    backgroundSize: "100% 113vh",
                     size: "80%",
                     zIndex: -2,
                 }}

@@ -1,7 +1,5 @@
 'use client'
 import MultiLayerParallax from "@/common/Parallax/MultiLayerParallax";
-import Image from 'next/image'
-import styles from './style.module.scss'
 import { motion } from 'framer-motion';
 
 export default function Home() {

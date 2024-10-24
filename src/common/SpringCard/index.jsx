@@ -1,3 +1,4 @@
+import {CldImage} from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router";
@@ -54,25 +55,23 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
             onMouseLeave={handleMouseLeave}
             style={{
                 transformStyle: "preserve-3d",
-                width: 500,
-                height: 500,
                 transform,
                 cursor: 'pointer'
             }}
             onClick={()=>{
                 router.push(`/album/${route}`)
             }}
-            className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-gray-600 to-black-300"
+            className="relative lg:h-[500px] lg:w-[500px] xs:w-[400px] xs:h-[400px] rounded-xl bg-gradient-to-br from-gray-600 to-black-300"
         >
-            <Image
-                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1280/album_preview/${fileName}.jpg`}
-                alt={'fawf'}
-                objectFit={'cover'}
+            <CldImage
                 fill={true}
+                src={fileName}
+                alt={fileName}
                 style={{
                     borderRadius: '10px',
                     transform: "translateZ(75px)",
                 }}
+                priority
             />
             <div
                 style={{
@@ -98,8 +97,8 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
                             width={20}
                             height={20}
                             alt={alt}
-
-                        ></Image>
+                            unoptimized
+                        />
                     </Link>
                 }
             </div>

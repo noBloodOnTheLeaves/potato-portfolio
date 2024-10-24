@@ -45,7 +45,7 @@ export default function BeforeAfterCarousel() {
             <div className="flex  items-center">
                 {/*AnimatePresence is necessary to show the items after they are deleted because only max. 3 are shown*/}
                 <AnimatePresence mode="popLayout" initial={false}>
-                    {visibleItems.map((item, index) => {
+                    {visibleItems.map((item) => {
                         // The layout prop makes the elements change its position as soon as a new one is added
                         // The key tells framer-motion that the elements changed its position
                         return (
@@ -75,7 +75,7 @@ export default function BeforeAfterCarousel() {
                                     secondImage={item.secondImage}
                                     firstImageClassName="object-cover object-left-top"
                                     secondImageClassname="object-cover object-left-top"
-                                    className={"h-[250px] w-[200px] md:h-[500px] md:w-[500px] " /*+ index === 0 ? 'left-100' : index === 1 && 'right-100'*/}
+                                    className={"xs:h-[370px] xs:w-[370px] md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px] " /*+ index === 0 ? 'left-100' : index === 1 && 'right-100'*/}
                                     slideMode="hover"
                                 />
                             </motion.div>
@@ -96,7 +96,7 @@ export default function BeforeAfterCarousel() {
                     </svg>
                 </motion.button>
                 <motion.button
-                    hileTap={{scale: 0.8}}
+                    whileTap={{scale: 0.8}}
                     onClick={() => handleClick(1)}
                     className="ml-5"
                 >
