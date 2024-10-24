@@ -56,7 +56,6 @@ export default function About() {
         <Curve>
             <div
                 style={{
-                zIndex: 4,
                 position: 'relative',
                 width: '100vw',
                 height: '100vh',

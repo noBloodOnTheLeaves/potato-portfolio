@@ -21,7 +21,7 @@ export default function Header() {
 
     React.useEffect(() => {
         if (isActive) setIsActive(false)
-    }, [isActive, pathname])
+    }, [])
 
     React.useLayoutEffect(() => {
         if (window.innerWidth < 800) {
