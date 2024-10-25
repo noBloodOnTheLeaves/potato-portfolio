@@ -1,5 +1,6 @@
 "use client";
 import {SparklesCore} from "@/common/Sparkles";
+import {CldImage} from "next-cloudinary";
 import Image from "next/image";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -180,7 +181,17 @@ export const Compare = ({
                                 clipPath: `inset(0 ${100 - sliderXPercent}% 0 0)`,
                             }}
                             transition={{ duration: 0 }}>
-                            <Image
+                            <CldImage
+                                src={firstImage}
+                                alt={firstImage}
+                                fill={true}
+                                className={cn(
+                                    "absolute inset-0  z-20 rounded-2xl flex-shrink-0 w-full h-full select-none",
+                                    firstImageClassName
+                                )}
+                                priority
+                            />
+                            {/*<Image
                                 src={firstImage}
                                 alt={firstImage}
                                 objectFit={'cover'}
@@ -190,21 +201,32 @@ export const Compare = ({
                                     firstImageClassName
                                 )}
                                 unoptimized
-                            />
+                            />*/}
                         </motion.div>
                     ) : null}
                 </AnimatePresence>
             </div>
             <AnimatePresence initial={false}>
                 {secondImage ? (
-                    <motion.img
+                    <CldImage
+                        alt={secondImage}
+                        src={secondImage}
+                        className={cn(
+                            "absolute top-0 left-0 z-[19]  rounded-2xl w-full h-full select-none",
+                            secondImageClassname
+                        )}
+                        fill={true}
+                        tint="70:black"
+                        priority
+                    />
+                   /* <motion.img
                         className={cn(
                             "absolute top-0 left-0 z-[19]  rounded-2xl w-full h-full select-none",
                             secondImageClassname
                         )}
                         alt={secondImage}
                         src={secondImage}
-                        draggable={false} />
+                        draggable={false} />*/
                 ) : null}
             </AnimatePresence>
         </div>)
