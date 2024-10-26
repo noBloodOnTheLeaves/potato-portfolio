@@ -30,7 +30,6 @@ export default function Form({dates = [] }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoad(true)
-        console.log("Form submitted", form);
         if (validate()) {
             await sendDiscordMessage()
         }

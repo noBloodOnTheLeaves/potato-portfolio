@@ -1,6 +1,8 @@
 import {motion, useScroll, useTransform} from "framer-motion";
+import {CldImage} from "next-cloudinary";
 import React, {useRef} from "react";
 import banner from "/data/banner.json"
+import {cn} from "../../../lib/utils";
 
 export default function MultiLayerParallax() {
     const ref = useRef(null);
@@ -36,15 +38,17 @@ export default function MultiLayerParallax() {
             <motion.div
                 className="absolute inset-0"
                 style={{
-                    backgroundImage: `url(/images/SamuraiBannerVanish.jpg) `,
-                    backgroundPosition: "bottom",
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: "100% 114vh",
-
                     y: backgroundY1,
                     zIndex: -5
                 }}
-            />
+            >
+                <CldImage
+                    src={'samurai_background'}
+                    alt={'samurai_background'}
+                    fill={true}
+                    priority
+                />
+            </motion.div>
             {/*<motion.div
                 className="absolute inset-0"
                 style={{
@@ -58,14 +62,17 @@ export default function MultiLayerParallax() {
             <div
                 className="absolute inset-0  xl:left-0 xl:w-full xs:w-[50rem] xs:-left-44"
                 style={{
-                    backgroundImage: `url(/images/SamuraiLayer1.png) `,
-                    backgroundPosition: "bottom",
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: "100% 113vh",
                     size: "80%",
                     zIndex: -2,
                 }}
-            />
+            >
+                <CldImage
+                    src={'samurai'}
+                    alt={'samurai'}
+                    fill={true}
+                    priority
+                />
+            </div>
         </div>
     );
 }
