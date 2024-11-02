@@ -5,7 +5,8 @@ import {usePathname} from 'next/navigation';
 import {menuSlide} from '../animation';
 import Link from './Link';
 import routes from '/data/routes.json'
-const navItems = [
+
+/*const navItems = [
     {
         title: "Home",
         href: "/",
@@ -26,7 +27,7 @@ const navItems = [
         title: "Contact",
         href: "/contact",
     },
-]
+]*/
 
 export default function Index() {
 

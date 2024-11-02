@@ -60,7 +60,7 @@ const Card = () => {
             }}>
 
 
-                <div className="lg:h-[400px] lg:w-[400px] xs:h-[300px] xs:w-[300px]">
+                <div className="lg:h-[400px] lg:w-[400px] xs:h-[300px] xs:w-[300px] w-[300px] h-[300px]">
                     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
                     <div className="relative shadow-xl bg-gray-900 border border-gray-800  p-3 h-full overflow-hidden rounded-2xl flex flex-col justify-start items-end">
 
@@ -104,7 +104,7 @@ const Card = () => {
                     transform: "translateZ(70px)",
                     display: 'flex',
                 }}
-                className="md:left-[300px] xs:left-[150px]"
+                className="md:left-[300px] xs:left-[150px] left-[150px] min-[200px]:invisible"
             >
                 {buttons.map((value) => {
                     return (
@@ -147,6 +147,7 @@ const Card = () => {
                     transform: "translateZ(100px)",
                 }}
                 className="
+                top-[210px] right-[150px] w-[150px] h-[200px]
                 md:top-[170px] md:right-[220px]  xs:top-[120px] xs:right-[170px]
                 xs:w-[150px] xs:h-[200px] md:w-[150px] md:h-[200px]  lg:h-[350px] lg:w-[300px] xl:h-[350px] xl:w-[300px]
                 "

@@ -75,7 +75,7 @@ export default function BeforeAfterCarousel() {
                                     secondImage={item.secondImage}
                                     firstImageClassName="object-cover object-left-top"
                                     secondImageClassname="object-cover object-left-top"
-                                    className={"xs:h-[370px] xs:w-[370px] md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px] " /*+ index === 0 ? 'left-100' : index === 1 && 'right-100'*/}
+                                    className={"xs:h-[370px] xs:w-[370px] w-[360px] h-[360px] md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px] " /*+ index === 0 ? 'left-100' : index === 1 && 'right-100'*/}
                                     slideMode="hover"
                                 />
                             </motion.div>

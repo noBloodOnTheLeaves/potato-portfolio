@@ -4,18 +4,20 @@ import {useRouter} from "next/router";
 import Image from 'next/image';
 import styles from './style.module.scss'
 import Rounded from '../../common/RoundedButton';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { useScroll, motion, useTransform } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 
 export default function Index() {
     const container = useRef(null);
     const router = useRouter()
+    const [width, setWidth] = useState(500);
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ["start end", "end end"]
     })
-    const x = useTransform(scrollYProgress, [0, 1], [-350, 300])
+
+    const x = useTransform(scrollYProgress, [0, 1], width < 500 ? [-350, 50] : [-350, 300])
     // const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
     //const rotate = useTransform(scrollYProgress, [0, 1], [180, 90])
 
@@ -27,6 +29,7 @@ export default function Index() {
 
     useEffect(() => {
         setPath(progress);
+        setWidth(window.screen.width)
     }, [])
 
     const setPath = (progress) => {
@@ -78,7 +81,7 @@ export default function Index() {
              id="contactContainer"
              className="mt-60 z-0 h-4/5 bg-[#141516]  flex flex-wrap justify-evenly w-4/5 relative text-white rounded-t-[20px]">
             <div className="w-full bg-[#141516] pt-30 rounded-t-[20px] ">
-                <div className="p-5 flex justify-start items-center gap-4 pt-14 ml-14 xs:ml-3">
+                <div className="p-5 flex justify-start items-center gap-4 pt-14 xs:ml-3 ml-3">
                     <Image
                         width={100}
                         height={100}
@@ -86,7 +89,7 @@ export default function Index() {
                         src={'/images/contact/cheer-honor.gif'}
                         unoptimized
                     />
-                    <h2 className="w-96 text-5xl lg:text-5xl md:text-5xl sm:text-3xl xs:text-2xl tracking-[.25em]">
+                    <h2 className="w-96  lg:text-5xl md:text-5xl sm:text-3xl xs:text-2xl text-2xl tracking-[.25em]">
                         {"Let's work \ " +
                         "together"}</h2>
                 </div>
@@ -106,23 +109,23 @@ export default function Index() {
             <motion.div style={{x}} className="z-10 flex justify-center rounded-full">
                 <Rounded backgroundColor={'#413F42'}
                          style={{
-                             width: 180,
-                             height: 180,
+                             width: width < 500 ? 70 : 180,
+                             height: width < 500 ? 120 : 180,
                              borderRadius: 300,
                              backgroundColor: '#141516',
                          }}
-                         classes="w-[180px] h-[180px] xs:w-[100px] xs:h-[100px]"
+                         //classes="w-[100px] h-[100px] xs:w-[100px] xs:h-[100px] "
                          onClick={() => router.push(`/contact`)}>
-                    <p className="text-2xl absolute text-nowrap">Get in touch</p>
+                    <p className="text-1xl sm:text-2xl xs:text-1xl absolute text-nowrap ">Get in touch</p>
                 </Rounded>
             </motion.div>
-            <div className="w-full flex justify-between z-10 pl-10 mb-5">
+            <div className="w-full flex justify-between z-10 pl-10 mb-10">
                  <span>
-                            <h3 className="text-gray-500">Created by </h3>
-                            <Magnetic>
-                            <p>Panda 🐼</p>
-                        </Magnetic>
-                        </span>
+                     <h3 className="text-gray-500">Created by </h3>
+                     <Magnetic>
+                         <p>Panda 🐼</p>
+                     </Magnetic>
+                 </span>
             </div>
             {/*<div className={styles.body}>
                 <div className={styles.title}>

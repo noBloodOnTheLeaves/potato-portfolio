@@ -2,7 +2,6 @@ import {motion, useScroll, useTransform} from "framer-motion";
 import {CldImage} from "next-cloudinary";
 import React, {useRef} from "react";
 import banner from "/data/banner.json"
-import {cn} from "../../../lib/utils";
 
 export default function MultiLayerParallax() {
     const ref = useRef(null);
@@ -31,7 +30,7 @@ export default function MultiLayerParallax() {
                     fontFamily: "'Brush Strokes', sans-serif",
                     fontWeight: 300,
             }}
-                className={"h-72 xs:top-44 xl:tracking-[5rem] xs:tracking-[1.7rem]  !text-white xl:text-7xl xs:text-3xl text-nowrap relative flex justify-center items-center"}
+                className={"h-56 top-36 tracking-[0.6rem]  xs:top-44 xl:tracking-[5rem] xs:tracking-[1.7rem]  !text-white text-7xl xl:text-7xl xs:text-3xl text-nowrap relative flex justify-center items-center"}
             >
                 {banner.bigLabel}
             </motion.h1>
@@ -60,7 +59,7 @@ export default function MultiLayerParallax() {
                 }}
             />*/}
             <div
-                className="absolute inset-0  xl:left-0 xl:w-full xs:w-[50rem] xs:-left-44"
+                className="absolute inset-0 w-[68rem] -left-80 xl:left-0 xl:w-full xs:w-[50rem] xs:-left-44"
                 style={{
                     size: "80%",
                     zIndex: -2,
