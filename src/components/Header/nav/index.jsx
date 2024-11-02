@@ -29,7 +29,10 @@ import routes from '/data/routes.json'
     },
 ]*/
 
-export default function Index() {
+export default function Index({
+                                  changeActive = () => {
+                                  }, isActive = false
+                              }) {
 
     const pathname = usePathname();
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
@@ -43,9 +46,15 @@ export default function Index() {
             className={styles.menu}
         >
             <div className={styles.body}>
-                <div onMouseLeave={() => {
-                    setSelectedIndicator(pathname)
-                }} className={styles.nav}>
+                <div
+                    onMouseLeave={() => {
+                        setSelectedIndicator(pathname)
+                    }}
+                    className={styles.nav}
+                    onClick={() => {
+                        changeActive(!isActive)
+                    }}
+                >
                     <div className={styles.header}>
                         <p>Navigation</p>
                     </div>

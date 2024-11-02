@@ -110,7 +110,7 @@ export default function Header() {
                 </Rounded>
             </div>
             <AnimatePresence mode="wait">
-                {isActive && <Nav/>}
+                {isActive && <Nav changeActive={setIsActive} isActive={isActive}/>}
             </AnimatePresence>
         </>
     )

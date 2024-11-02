@@ -166,7 +166,7 @@ export default function Form({dates = [] }) {
                                 className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full"/>
                         </form>
                     </div>
-                    <div className="w-full  p-4 lg:p-8 mr-16 grid grid-cols-1 content-center justify-items-center">
+                    <div className="w-full mb-8 p-4 lg:p-8 xs:mr-16  grid grid-cols-1 content-center justify-items-center">
                         <Calendar onChange={changeForm} error={!!errors.date} bookedDay={form.date} scheduledDays={dates}/>
                         {!!errors.date && <p id="helper-text-description"
                                              className="mt-1 ml-1 text-sm text-red-500 dark:text-red-400">{errors.date}</p>}

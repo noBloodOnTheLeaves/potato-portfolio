@@ -48,7 +48,7 @@ export default function SharedModal({
                 className="relative z-40 flex aspect-[3/2] w-full max-w-7xl items-center wide:h-full xl:taller-than-854:h-auto"
                 {...handlers}
             >
-                <div className="absolute right-1 flex items-start gap-5 pr-5 pt-16 text-white h-full">
+                <div className="absolute right-1 flex items-start gap-5 pr-5 pt-16 text-white h-full invisible sm:visible md:visible lg:visible xl:visible 2xl:visible">
                     <button
                         onClick={() => closeModal()}
                         className="rounded-full p-1 "
@@ -101,10 +101,10 @@ export default function SharedModal({
                 </div>
 
                 {/* Buttons + bottom nav bar */}
-                <div className="absolute inset-0 mx-auto flex max-w-7xl items-center justify-center">
+                <div className="absolute inset-0 mx-auto flex max-w-7xl items-center justify-center ">
                     {/* Buttons */}
                     {loaded && (
-                        <div className="relative aspect-[3/2] max-h-full w-full">
+                        <div className="relative aspect-[3/2] max-h-full w-full invisible sm:visible md:visible lg:visible xl:visible 2xl:visible">
                             {navigation && (
                                 <>
                                     {index > 0 && (
