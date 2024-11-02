@@ -16,6 +16,9 @@
     height: 500px;
     position: absolute;
     top: -250px;
+    @media (width <= 500px) {
+        height: 300px;
+    }
 }
 
 .line svg path{
@@ -35,5 +38,8 @@
 
 .line .box:hover{
     height: 500px;
+    @media (width <= 500px) {
+        height: 300px;
+    }
     top: -250px;
 }

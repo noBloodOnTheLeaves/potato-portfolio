@@ -11,7 +11,7 @@ export default function MultiLayerParallax() {
     });
     const backgroundY1 = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const backgroundY2 = useTransform(scrollYProgress, [0, 1], ["-2%", "80%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
         <div
@@ -35,7 +35,7 @@ export default function MultiLayerParallax() {
                 {banner.bigLabel}
             </motion.h1>
             <motion.div
-                className="absolute inset-0"
+                className="absolute inset-0 w-[68rem] -left-80"
                 style={{
                     y: backgroundY1,
                     zIndex: -5
@@ -66,6 +66,7 @@ export default function MultiLayerParallax() {
                 }}
             >
                 <CldImage
+                    quality={100}
                     src={'samurai'}
                     alt={'samurai'}
                     fill={true}

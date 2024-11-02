@@ -79,7 +79,7 @@ export default function Index() {
     return (
         <div ref={container}
              id="contactContainer"
-             className="mt-60 z-0 h-4/5 bg-[#141516]  flex flex-wrap justify-evenly w-4/5 relative text-white rounded-t-[20px]">
+             className="mt-60 mb-0 z-0 h-4/5 bg-[#141516]  flex flex-wrap justify-evenly w-4/5 relative text-white rounded-t-[20px]">
             <div className="w-full bg-[#141516] pt-30 rounded-t-[20px] ">
                 <div className="p-5 flex justify-start items-center gap-4 pt-14 xs:ml-3 ml-3">
                     <Image
@@ -102,7 +102,7 @@ export default function Index() {
                 }} onMouseLeave={() => {
                     manageMouseLeave()
                 }} className={styles.box}></div>
-                <svg>
+                <svg >
                     <path ref={path}></path>
                 </svg>
             </div>
