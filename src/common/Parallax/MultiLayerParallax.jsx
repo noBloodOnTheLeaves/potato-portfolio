@@ -35,7 +35,7 @@ export default function MultiLayerParallax() {
                 {banner.bigLabel}
             </motion.h1>
             <motion.div
-                className="absolute inset-0 w-[68rem] -left-80"
+                className="absolute inset-0 w-[68rem] -left-80 xl:left-0 xl:w-full xs:w-[50rem] xs:-left-44"
                 style={{
                     y: backgroundY1,
                     zIndex: -5
