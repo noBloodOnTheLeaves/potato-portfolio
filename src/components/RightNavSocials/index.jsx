@@ -5,7 +5,7 @@ import contact from "../../../data/contact.json";
 export default function RightNavSocials() {
     return (
         <div
-            className="fixed right-5 bottom-[47%] z-10 "
+            className="fixed right-5 bottom-[47%] z-10 xs:visible invisible"
         >
             <Magnetic>
                 <svg  className="mb-4"  onClick={()=> window.open(contact.socials[0].link, 'target')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" color="#ffffff" fill="none">
