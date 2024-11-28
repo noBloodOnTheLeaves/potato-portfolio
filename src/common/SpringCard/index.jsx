@@ -64,10 +64,13 @@ const SpringCard = ({fileName = 'test', alt='test', label= 'name', instagram = n
             className="relative lg:h-[500px] lg:w-[500px] xs:w-[400px] xs:h-[400px] w-[360px] h-[360px] rounded-xl bg-gradient-to-br from-gray-600 to-black-300"
         >
             <CldImage
-                fill={true}
+                width="500"
+                height="500"
+                crop="fill"
                 src={fileName}
                 alt={fileName}
                 style={{
+                    position: 'absolute',
                     borderRadius: '10px',
                     transform: "translateZ(75px)",
                 }}

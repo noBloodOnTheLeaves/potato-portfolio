@@ -27,7 +27,6 @@ export default function MultiLayerParallax() {
                 style={{
                     y: textY,
                     zIndex: -3,
-                    fontFamily: "'Brush Strokes', sans-serif",
                     fontWeight: 300,
             }}
                 className={"h-56 top-36 tracking-[0.6rem]  xs:top-44 xl:tracking-[5rem] xs:tracking-[1.7rem]  !text-white text-7xl xl:text-7xl xs:text-3xl text-nowrap relative flex justify-center items-center"}

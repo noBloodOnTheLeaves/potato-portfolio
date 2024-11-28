@@ -104,7 +104,7 @@ const Card = () => {
                     transform: "translateZ(70px)",
                     display: 'flex',
                 }}
-                className="md:left-[300px] xs:left-[150px] left-[150px] min-[200px]:invisible"
+                className="md:left-[300px] xs:left-[150px] left-[150px] xs:visible invisible"
             >
                 {buttons.map((value) => {
                     return (
@@ -139,7 +139,7 @@ const Card = () => {
                 src={`/images/about/potato.jpg`}
                 alt={'potato'}
                 width={300}
-                height={400}
+                height={300}
                 objectFit="cover"
                 style={{
                     position: 'absolute',
@@ -149,7 +149,7 @@ const Card = () => {
                 className="
                 top-[210px] right-[150px] w-[150px] h-[200px]
                 md:top-[170px] md:right-[220px]  xs:top-[120px] xs:right-[170px]
-                xs:w-[150px] xs:h-[200px] md:w-[150px] md:h-[200px]  lg:h-[350px] lg:w-[300px] xl:h-[350px] xl:w-[300px]
+                xs:w-[200px] xs:h-[200px] md:w-[200px] md:h-[200px]  lg:h-[300px] lg:w-[300px] xl:h-[300px] xl:w-[300px]
                 "
                 unoptimized
             />
